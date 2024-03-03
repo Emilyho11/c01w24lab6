@@ -1,0 +1,23 @@
+services:
+  frontend:
+    image: emilyh0/quirknotes_frontend:latest
+    ports:
+    - "3000:3000"
+    environment:
+    - ENV=Docker
+    depends_on:
+    - backend
+
+  backend:
+    image: emilyh0/quirknotes_backend:latest
+    ports:
+    - "4000:4000"
+    environment:
+    - ENV=Docker
+    depends_on:
+    - mongodb
+
+  mongodb:
+    image: mongo:latest
+    ports:
+    - "27017:27017"
