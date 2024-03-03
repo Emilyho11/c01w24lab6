@@ -1,8 +1,11 @@
 services:
   frontend:
-    image: emilyh0/quirknotes_frontend:latest
+    build:
+      context: .
+      dockerfile: Dockerfile_frontend
+      target: frontend
     ports:
-    - "3000:3000"
+    - "3000:80"
     environment:
     - ENV=Docker
     depends_on:
